@@ -9,6 +9,7 @@ import styles from './style';
 import TopBar from './TopBar';
 import WelcomeMessage from './WelcomeMessage';
 import FooterBar from './FooterBar';
+import ActionBar from './ActionBar';
 
 export default function PageInitial() {
     return (
@@ -16,6 +17,7 @@ export default function PageInitial() {
             <TopBar />
             <WelcomeMessage />
             <Balance/>
+            <ActionBar/>
             <FooterBar/>
         </ Pressable >
 
