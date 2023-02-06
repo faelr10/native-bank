@@ -8,7 +8,7 @@ import styles from './style';
 export default function TopBar() {
     return (
         <View style={styles.BarraSuperior}>
-            <Image source={require('../../../image/logoInterna.png')} style={styles.image} />
+            <Image source={require('../../../image/topPage.png')} style={styles.image} />
         </View>
     );
 }
