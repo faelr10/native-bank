@@ -3,12 +3,10 @@ import { Pressable, StyleSheet, Keyboard, Text, View, Animated } from 'react-nat
 import Form from './src/components/Form';
 import Logo from './src/components/Logo';
 import PageInitial from './src/components/PageInitial';
-import AppNavigator from './src/Navigator';
-
 
 export default function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [colorDisplayMessage, setColorDisplayMessage] = useState(null)
   const [messageRespost, setMessageRespost] = useState(null)
   const [displayMessageRespost, setDisplayMessageRespost] = useState('none')
@@ -62,7 +60,7 @@ export default function App() {
           <PageInitial/>
         </View>
       ) : (
-        <View onPress={Keyboard.dismiss} style={styles.container}>
+        <View onPress={Keyboard.dismiss} style={styles.containerNotLogged}>
           <Animated.View opacity={fadeAnim} style={styles.animationsMessage}>
             <View display={displayMessageRespost} backgroundColor={colorDisplayMessage} style={styles.messageError} >
               <Text>{messageRespost}</Text>
@@ -81,7 +79,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#d3d3d3',
-    paddingTop: 50,
+    paddingTop: 35,
+    alignItems: "center",
+  },
+  containerNotLogged: {
+    flex: 1,
+    backgroundColor: '#d3d3d3',
+    paddingTop: 120,
     alignItems: "center",
   },
   containerIslogged: {
