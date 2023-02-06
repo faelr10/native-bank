@@ -5,12 +5,13 @@ const styles = StyleSheet.create({
         height:80,
         paddingLeft:30,
         justifyContent:"center",
-        backgroundColor:"black",
-        bottom:1
+        backgroundColor:"#1b1e23",
+        justifyContent:"center"
     },
     welcomeMessage:{
         fontSize:22,
-        color:"white"
+        color:"white",
+        top:15
     }
 });
 
