@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     boxBalance: {
         width: "100%",
-        height: "20%",
+        height: "15%",
         color: "black",
         alignItems: "flex-start",
         justifyContent:"center",
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     valueBalance: {
         paddingLeft: 30,
-        paddingTop: 10,
+        paddingTop: 5,
         fontSize: 25,
         fontWeight: "bold",
     },
