@@ -1,15 +1,11 @@
-import React from 'react'
-import {
-    Text,
-    View,
+import React from "react";
+import { Text, View } from "react-native";
+import styles from "./style";
 
-} from 'react-native'
-import styles from './style';
-
-export default function WelcomeMessage() {
-    return (
-        <View style={styles.welcomeBox}>
-            <Text style={styles.welcomeMessage}>Welcome Rafael</Text>
-        </View>
-    );
+export default function WelcomeMessage(props) {
+  return (
+    <View style={styles.welcomeBox}>
+      <Text style={styles.welcomeMessage}>Welcome {props.name}</Text>
+    </View>
+  );
 }
