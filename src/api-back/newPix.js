@@ -1,18 +1,18 @@
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-export async function login(email, password) {
+export async function newPix(keyPix, valuePix, idProfile) {
   try {
     const body = {
-      email: email,
-      password: password,
+      keyPix: keyPix,
+      valuePix: valuePix,
     };
     const respost = (
       await axios
-        .post("https://api-bank-mobile-faelr10.vercel.app/auth/login", body)
+        .post(`https://api-bank-mobile-faelr10.vercel.app/pix/${idProfile}`, body)
         .then()
     ).data;
-    await AsyncStorage.setItem("idProfileLogged", respost.id);
+    console.log(respost)
     return respost;
   } catch (error) {
     return error;

@@ -3,7 +3,6 @@ const styles = StyleSheet.create({
     fieldIconAction:{
         width:"29%",
         backgroundColor:"silver",
-        height:"26%",
         borderRadius:50,
         alignItems:"center",
         justifyContent:"center",

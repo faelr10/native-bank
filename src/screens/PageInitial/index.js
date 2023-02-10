@@ -6,12 +6,12 @@ import {
   ActivityIndicator,
   Text,
 } from "react-native";
-import Balance from "./Balance";
+import Balance from "../../components/Balance";
 import styles from "./style";
-import TopBar from "./TopBar";
-import WelcomeMessage from "./WelcomeMessage";
-import FooterBar from "./FooterBar";
-import ActionBar from "./ActionBar";
+import TopBar from "../../components/TopBar";
+import WelcomeMessage from "../../components/WelcomeMessage";
+import FooterBar from "../../components/FooterBar";
+import ActionBar from "../../components/ActionBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getProfile } from "../../api-back/getProfile";
 
@@ -24,7 +24,7 @@ export default function PageInitial() {
     try {
       const fetchData = async () => {
         const idProfileLogged = await AsyncStorage.getItem("idProfileLogged");
-        const profile = await getProfile(idProfileLogged);
+        const profile = await getProfile("id", idProfileLogged);
         setBalanceValue(profile.Account[0].balance);
         setProfileName(profile.name);
       };

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import styles from "./style";
 import Icon from "react-native-vector-icons/FontAwesome";
-
+import { getProfile } from "../../api-back/getProfile";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Balance(props) {
   const [balanceValue, setBalanceValue] = useState("******");
@@ -11,7 +12,9 @@ export default function Balance(props) {
   async function viewBalance(showBalance) {
     if (showBalance) {
       try {
-        setBalanceValue(props.balance)
+        const idProfileLogged = await AsyncStorage.getItem("idProfileLogged");
+        const profile = await getProfile('id',idProfileLogged);
+        setBalanceValue(profile.Account[0].balance)
         setBooleanBalance(true);
       } catch (error) {
         console.error(error);
