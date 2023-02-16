@@ -13,8 +13,11 @@ import styles from "./style";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { newPix } from "../../api-back/newPix";
 import { getProfile } from "../../api-back/getProfile";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Pix() {
+  const navigation = useNavigation();
+
   const [loading, setLoading] = useState(true);
   const [displayLoading, setDisplayLoading] = useState(null);
   const [fieldKeyPix, setFieldKeyPix] = useState(false);
@@ -59,7 +62,7 @@ export default function Pix() {
     setDisplayKeyPix("none");
     setDisplayDataConfirm("flex");
     const idProfileLogged = await AsyncStorage.getItem("idProfileLogged");
-    const profile = await getProfile('id',idProfileLogged);
+    const profile = await getProfile("id", idProfileLogged);
     const profilePix = await getProfile("keyPix", keyPix);
     setNameProfileLogged(profile.name);
     setNameProfilePix(profilePix.name);
@@ -132,15 +135,18 @@ export default function Pix() {
                 onPress={() => pickedQrCode(!fieldQrCode)}
               >
                 <Icon style={styles.iconAction} name="qrcode" />
-                <Text>QR Code</Text>
+                <Text>QRCode</Text>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
                 style={styles.actionFieldSend}
-                onPress={() => pickedQrCode(!fieldQrCode)}
+                onPress={
+                  (() => pickedQrCode(!fieldQrCode),
+                  () => navigation.navigate("ScannerQrCode"))
+                }
               >
                 <Icon style={styles.iconAction} name="qrcode" />
-                <Text>QR Code</Text>
+                <Text>QRCode</Text>
               </TouchableOpacity>
             )}
           </View>

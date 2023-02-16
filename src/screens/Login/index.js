@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#d3d3d3',
-    paddingTop: 35,
     alignItems: "center",
   },
   containerNotLogged: {
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
     position: "absolute",
-    top: 10
+    top: 75
   },
   messageError: {
     flex: 0,

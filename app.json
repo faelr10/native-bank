@@ -24,10 +24,32 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.fael_r11.nativebank"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "build": {
+          "preview": {
+            "android": {
+              "buildType": "apk"
+            }
+          },
+          "preview2": {
+            "android": {
+              "gradleCommand": ":app:assembleRelease"
+            }
+          },
+          "preview3": {
+            "developmentClient": true
+          },
+          "production": {}
+        },
+        "projectId": "b8ee38bb-ef2b-41b2-9e3f-51171b5ac3f0"
+      }
     }
   }
 }
