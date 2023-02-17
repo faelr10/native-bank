@@ -1,47 +1,53 @@
-import React, { useState, useEffect } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
-import { BarCodeScanner } from "expo-barcode-scanner";
+import { StyleSheet } from "react-native";
+const styles = StyleSheet.create({
+  modalAll: {
+    width: "80%",
+    height: 250,
+    backgroundColor: "black",
+    alignItems: "center",
+    position: "relative",
+    top: 280,
+    left: "10%",
+    opacity: 0.6,
+    borderRadius: 50,
+  },
+  confirmationTitle: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 25,
+    top: 25,
+    position: "relative",
+  },
+  boxInput: {
+    marginBottom: 50,
+    width: 250,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    borderBottomWidth: 1,
+    borderBottomColor: "black",
+    paddingHorizontal: 10,
+    top: 80,
+    position: "relative",
+    alignItems: "center",
+  },
+  inputText: {
+    textAlign: "center",
+    width: "100%",
+  },
+  ButtonCalculator: {
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    width: 200,
+    backgroundColor: "white",
+    paddingTop: 10,
+    paddingBottom: 14,
+    top: 55,
+  },
+  textButtonCalculator: {
+    fontSize: 17,
+    fontWeight:"bold"
+},
+});
 
-export default function App() {
-  const [hasPermission, setHasPermission] = useState(null);
-  const [scanned, setScanned] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync();
-      setHasPermission(status === "granted");
-    })();
-  }, []);
-
-  const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    console.log(data);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-  };
-
-  if (hasPermission === null) {
-    return <Text>Requesting for camera permission</Text>;
-  }
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
-
-  return (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: "column",
-        justifyContent: "flex-end",
-      }}
-    >
-      <BarCodeScanner
-        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
-      />
-
-      {scanned && (
-        <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
-      )}
-    </View>
-  );
-}
+export default styles;

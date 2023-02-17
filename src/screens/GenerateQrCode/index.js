@@ -1,5 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -18,10 +18,11 @@ export default function GenerateQrCode() {
   const [displayQrCode, setDisplayQrCode] = useState("none");
 
   const handleClick = async () => {
-    const idProfileLogged = await AsyncStorage.getItem("idProfileLogged");
-    setQrValue(inputText);
     Keyboard.dismiss();
     setDisplayQrCode("flex");
+
+    const idProfileLogged = await AsyncStorage.getItem("idProfileLogged");
+    setQrValue(inputText);
     setQrValue(
       JSON.stringify({ balance: inputText, idProfile: idProfileLogged })
     );

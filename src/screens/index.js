@@ -6,7 +6,7 @@ import PageInitial from "./PageInitial";
 import Pix from "./Pix";
 import ScannerQrCode from "./Pix/QrCode";
 import GenerateQrCode from "./GenerateQrCode";
-
+import { Modal } from "../modal";
 const Stack = createNativeStackNavigator();
 
 export default function Screens() {
@@ -30,6 +30,10 @@ export default function Screens() {
 
       <Stack.Screen name="Pix" options={{ headerShown: false }}>
         {(props) => <Pix {...props} extraData={"someData"} />}
+      </Stack.Screen>
+
+      <Stack.Screen name="Modal" options={{ headerShown: false }}>
+        {(props) => <Modal {...props} extraData={"someData"} />}
       </Stack.Screen>
 
       <Stack.Screen

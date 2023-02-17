@@ -77,7 +77,6 @@ export default function Pix() {
 
   async function confirmPixTransfer() {
     const idProfileLogged = await AsyncStorage.getItem("idProfileLogged");
-    console.log({ keyPix, valuePix, profileId: idProfileLogged });
     const pix = await newPix(keyPix, valuePix, idProfileLogged);
   }
 

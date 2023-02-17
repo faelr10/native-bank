@@ -12,7 +12,6 @@ export async function login(email, password) {
         .post("https://api-bank-mobile-faelr10.vercel.app/auth/login", body)
         .then()
     ).data;
-    console.log(respost.id);
     await AsyncStorage.setItem("idProfileLogged", respost.id);
     return respost;
   } catch (error) {
