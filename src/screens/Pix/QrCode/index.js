@@ -3,7 +3,6 @@ import {
   Text,
   View,
   StyleSheet,
-  Button,
   ActivityIndicator,
   Modal,
   TextInput,
